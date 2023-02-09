@@ -45,7 +45,7 @@ function createMemoryStorageEngine(dsn: string, options: StorageOptions = {}): B
 }
 
 /**
- * Configure a storage adapter based on the provided dsn
+ * Configure a storage so that based on the provided dsn
  * dsn=redis://host:port will create a redis storage engine
  * dsn=memory:// will create an in-memory storage engine
  *
