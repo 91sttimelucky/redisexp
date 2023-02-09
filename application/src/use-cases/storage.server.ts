@@ -3,12 +3,15 @@ import { BackendStorage, StorageOptions } from './contracts/BackendStorage';
 
 function createRedisStorageEngine(dsn: string | undefined, options: StorageOptions = {}): BackendStorage {
     const prefix = options?.prefix ?? '';
-    let redisDSN = `${dsn || 'redis://127.0.0.1:6379'}`;
+    let redisDSN = `${dsn || 'redis://medicalexport.redis.cache.windows.net:6380'}`;
     const config = require('platformsh-config').config();
     if (config.isValidPlatform()) {
         const credentials = config.credentials('redis');
         redisDSN = `redis://${credentials.host}:${credentials.port}`;
+    } else {
+        redisDSN = `redis://medicalexport.redis.cache.windows.net:6380,password=OMeO66zQYwCp9QeWbR0oMExqclgKqp3I1AzCaNzv7Ns=,ssl=true`;
     }
+
     const client = redis.createClient({ url: redisDSN });
     client.connect();
     return {

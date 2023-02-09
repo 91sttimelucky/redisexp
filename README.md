@@ -77,3 +77,4 @@ Also
 -   Frontend Live Reload WebScoket run in HTTP on 3019
 -   Caddy enables HTTPS on top of them all
 # medicalexpo
+# redismedical
